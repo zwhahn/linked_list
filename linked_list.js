@@ -60,14 +60,16 @@ export class LinkedList {
         if (this.head == null) {
             return
         }
-        currentNode = this.head;
-        let nextNodePreview = currentNode.nextNode
+        let previousNode = null;
+        let currentNode = this.head;
+        let nextNodePreview = currentNode.nextNode;
         while (nextNodePreview != null) {
+            previousNode = currentNode;
             currentNode = currentNode.nextNode
             nextNodePreview = currentNode.nextNode
         }
-        return currentNode.nextNode = null;
-
+        previousNode.nextNode = null;
+        return 
     }
 
     contains (value) {
