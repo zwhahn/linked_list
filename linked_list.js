@@ -1,18 +1,18 @@
 export class LinkedList {
-    constructor () {
-        this.head = null
+    constructor() {
+        this._head = null;
     }
 
     append (value) {
         let currentNode = this.head
-        if (this.head = null) {
-            this.head = new Node(value, nextNode = null);
+        if (this.head == null) {
+            this._head = new Node(value, null);
         }
         else {
-            while (currentNode.next != null) {
+            while (currentNode.nextNode != null) {
                 currentNode = currentNode.nextNode
             }
-            currentNode.nextNode = new Node(value, nextNode = null);
+            currentNode.nextNode = new Node(value, null);
         }
     }
 
@@ -32,7 +32,7 @@ export class LinkedList {
     }
 
     get head() {
-        return head    
+        return this._head
     }
 
     get tail() {
@@ -87,12 +87,19 @@ export class LinkedList {
     }
 
     get toString() {
-        let linkedListString = null;
+        let linkedListString = '';
         let currentNode = this.head;
-        while (currentNode.nextNode != null) {
-            if (currentNode != head) {
-                linkedListString.concat("linkedListString", `-> ( ${currentNode.value} )`);
+        for (let k = 0; k <= this.size; k++) {
+            if (currentNode == this.head) {
+                linkedListString = `( ${currentNode.value} )`;
+            } else if (currentNode == null) {
+                linkedListString += `-> ( ${currentNode} )`;
+                break
             }
+            else {
+                linkedListString += ` -> ( ${currentNode.value} )`;
+            }
+            currentNode = currentNode.nextNode;
         }
         return linkedListString;
     }
@@ -100,8 +107,8 @@ export class LinkedList {
 
 
 class Node {
-    constructor() {
-        this.value = null;
-        this.nextNode = null;
+    constructor(value = null, nextNode = null) {
+        this.value = value;
+        this.nextNode = nextNode;
     }
 }
