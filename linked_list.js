@@ -74,22 +74,26 @@ export class LinkedList {
 
     contains (value) {
         let currentNode = this.head;
-        for (k = 0; k <= this.size; k++) {
+        while (currentNode.nextNode != null) {
             if (currentNode.value == value) {
                 return true
             }
-            return false
+            currentNode = currentNode.nextNode
         }
+        return false
     }
 
     find (value) {
         let currentNode = this.head;
-        for (k = 0; k <= this.size; k++) {
+        let k = 0;
+        while (currentNode.nextNode != null)  {
             if (currentNode.value == value) {
                 return k
             }
-            return null
+            currentNode = currentNode.nextNode
+            k++;
         }
+        return null
     }
 
     get toString() {
