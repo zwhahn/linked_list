@@ -37,10 +37,13 @@ export class LinkedList {
 
     get tail() {
         let currentNode = this.head;
-        while (currentNode != null) {
+        let nextNodePreview = currentNode.nextNode;
+        while (nextNodePreview != null) {
             currentNode = currentNode.nextNode
+            nextNodePreview = currentNode.nextNode
         }
-        return tail = currentNode;
+        let tail = currentNode;
+        return tail;
     }
 
     at (index) {
@@ -57,7 +60,7 @@ export class LinkedList {
             return
         }
         currentNode = this.head;
-        nextNodePreview = currentNode.nextNode
+        let nextNodePreview = currentNode.nextNode
         while (nextNodePreview != null) {
             currentNode = currentNode.nextNode
             nextNodePreview = currentNode.nextNode
