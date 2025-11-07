@@ -17,8 +17,8 @@ export class LinkedList {
     }
 
     prepend (value) {
-        newNode = new Node (value, nextNode = this.head);
-        this.head = newNode;
+        let newNode = new Node (value, this.head);
+        this._head = newNode;
     }
 
     get size() {
